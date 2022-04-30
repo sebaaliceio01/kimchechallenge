@@ -10,15 +10,17 @@ export const client = new ApolloClient({
   uri: enviroment.API_URL,
 });
 
-const App = () => (
-  <ApolloProvider client={client}>
-    <div>
-      <Routes>
-        <Route path="/" element={<Home />}></Route>
-      </Routes>
-    </div>
-  </ApolloProvider>
-);
+function App() {
+  return (
+    <ApolloProvider client={client}>
+      <div>
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+        </Routes>
+      </div>
+    </ApolloProvider>
+  );
+}
 
 export default App;
 
