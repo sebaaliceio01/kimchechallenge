@@ -28,11 +28,12 @@ function Home(props) {
 
   // const countriesData = data.map((result) => <div>{JSON.stringify(result)}</div>);
 
-  return <div className="home">
+  return (
+    <div className="home">
       <Header />
-    <h2>Country search</h2>
-    <CountryForm />
-  </div>;
+      <CountryForm />
+    </div>
+  );
 }
 
 export default Home;
