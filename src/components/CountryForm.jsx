@@ -20,7 +20,7 @@ function CountryForm() {
       .query({
         query: gql`
           query {
-            continents(filter: { code: { in: "${value}" } }) {
+            continents(filter: { code: { in: "${value.toUpperCase()}" } }) {
               code
               countries {
                 code
@@ -36,7 +36,6 @@ function CountryForm() {
       })
       .then((result) => {
         setData(result.data.continents);
-        console.log(result.data.continents);
       });
   };
 
@@ -74,7 +73,7 @@ function CountryForm() {
         </div>
       </form>
       <div className="country-result">
-        <CountryResults />
+        <CountryResults countryResult={data}/>
       </div>
     </div>
   );

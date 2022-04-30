@@ -1,15 +1,25 @@
-import React from "react"
+import React from "react";
 
 const styles = {
-    countryResults: {
-        margin: "25px"
-    }
-}
+  countryResults: {
+    margin: "25px",
+  },
+};
 
 function CountryResults(props) {
-    return <div className="country-results" style={styles.countryResults}>
+    
+  const results = props.countryResult.map((result) => (
+      <div>
+          {result.code}
+          {result.countries.map((result) => {
+              console.log(result.languages)
+          })}
+      </div>
+  ));
 
-    </div>
+  return <div className="country-results" style={styles.countryResults}>
+      {results}
+  </div>;
 }
 
-export default CountryResults
+export default CountryResults;
