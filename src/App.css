@@ -1,19 +1,30 @@
 form.row {
-  background-position: center;
+  margin: 15px;
+}
+.banner {
+  background-image: url(./assets/bandeiras_-_reproducao.jpg);
+  height: 300px;
 }
 .image-title {
   text-align: center;
   margin: 25px 0;
 }
 .form {
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin: 25px 0;
+  display: grid;
+  grid-template-areas: 
+  "a a"
+  "b c";
+  margin: 0px 25px;
+  gap: 5px;
 }
-.form-control {
-  width: 60%;
-  background-color: white;
+.a {
+  grid-area: a;
+}
+.b {
+  grid-area: b;
+}
+.c {
+  grid-area: c;
 }
 .photos {
   margin: 15px;
@@ -27,4 +38,41 @@ form.row {
 }
 .popular {
   color: white;
+}
+.image-grid {
+  border: 1px solid rgba(128, 128, 128, 0.281);
+  padding: 15px;
+  box-shadow: 0 5px 5px -3px #0003, 0 8px 10px 1px #00000024,
+    0 3px 14px 2px #0000001f;
+}
+.countries {
+  margin: 15px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+.country-icon {
+  font-size: 16px;
+}
+.card-footer {
+  text-align: end;
+  margin-top: 25px;
+}
+.divider {
+  height: 2px;
+  background-color: #dfd6cc;
+  width: 100%;
+  margin: 20px 0;
+  position: relative;
+}
+
+.divider-blue {
+  position: absolute;
+  height: 2px;
+  width: 35px;
+  background-color: #64748b;
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
 }

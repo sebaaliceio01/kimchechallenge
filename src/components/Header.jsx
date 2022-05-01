@@ -10,19 +10,13 @@ function Header() {
 
   return (
     <div className="header">
-      <AppBar position="static">
+      <AppBar position="sticky">
         <Toolbar>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             <Button variant="primary" onClick={() => navigate("/")}>
               ¡Welcome!
             </Button>
           </Typography>
-          {/* <Button variant="primary" onClick={() => navigate("/about-me")}>
-            About Me
-          </Button>
-          <Button variant="primary" onClick={() => navigate("/search-photos")}>
-            Search Photos
-          </Button> */}
         </Toolbar>
       </AppBar>
     </div>
