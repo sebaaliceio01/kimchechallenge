@@ -10,7 +10,7 @@ const client = new ApolloClient({
   uri: enviroment.API_URL,
 });
 
-function CountryForm(value) {
+function CountryForm() {
 
   const getCountries = (value, groupBy) => {
     const countries = client
