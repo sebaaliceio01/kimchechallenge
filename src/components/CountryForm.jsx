@@ -22,6 +22,7 @@ function CountryForm(value) {
               name,
               emoji,
               phone,  
+              capital,
               continent {
                 code,
                 name,
@@ -48,7 +49,6 @@ function CountryForm(value) {
     search: "UY",
   });
   const [countries, setCountries] = useState([]);
-  const [continents, setContinents] = useState([]);
   const [groupBy, setGroupBy] = useState([])
 
   const handleInputChange = (event) => {
