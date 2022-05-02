@@ -6,6 +6,7 @@ function Home(props) {
   return (
     <div className="home">
       <Header />
+      <div className="banner"></div>
       <CountryForm />
     </div>
   );

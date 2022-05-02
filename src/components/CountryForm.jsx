@@ -1,52 +1,59 @@
-//React components
 import React, { useEffect, useState } from "react";
 
-//Material-UI
 import { Button, TextField } from "@mui/material";
 import ApolloClient, { gql } from "apollo-boost";
 
-//My own components
 import CountryResults from "./CountryResults";
 import { enviroment } from "../enviroment";
-import { useQuery } from "@apollo/react-hooks";
 
 const client = new ApolloClient({
   uri: enviroment.API_URL,
 });
 
 function CountryForm() {
-  const fetchData = (value) => {
-    const continents = client
+
+  const getCountries = (value, groupBy) => {
+    const countries = client
       .query({
         query: gql`
           query {
-            continents(filter: { code: { in: "${value.toUpperCase()}" } }) {
-              code
-              countries {
-                code
-                name
-                languages {
-                  code
-                  native
-                }
+            countries(filter: { code: { in: "${value.toUpperCase()}" } }) {
+              code,
+              name,
+              emoji,
+              phone,  
+              capital,
+              continent {
+                code,
+                name,
+              },
+               languages {
+                name,
+                native,
               }
             }
           }
         `,
       })
       .then((result) => {
-        setData(result.data.continents);
+        setCountries(result.data.countries);
       });
+      setGroupBy(groupBy)
   };
 
-  const [datos, setDatos] = useState({
-    search: "Nature",
+  useEffect(() => {
+    getCountries(filter.search, 'country')
+  }, [])
+
+  const [filter, setfilter] = useState({
+    search: "UY",
   });
-  const [data, setData] = useState([]);
+  const [countries, setCountries] = useState([]);
+  const [groupBy, setGroupBy] = useState([])
 
   const handleInputChange = (event) => {
-    setDatos({
-      ...datos,
+    setfilter({
+      ...filter,
       [event.target.name]: event.target.value,
     });
   };
@@ -54,31 +61,36 @@ function CountryForm() {
   return (
     <div className="countryForm">
       <form className="row">
-        <h1 className="image-title">Country search</h1>
+        {/* <h1 className="image-title">Country search</h1> */}
         <div className="form">
           <TextField
             type="text"
             placeholder="Search country..."
-            className="form-control"
+            className="form-control a"
             name="search"
             onChange={handleInputChange}
           />
           <Button
             variant="contained"
-            className="button"
-            onClick={() => fetchData(datos.search)}
+            className="button b "
+            onClick={() => getCountries(filter.search, 'country')}
           >
-            Buscar
+            Agrupar por continente
+          </Button>
+          <Button
+            variant="contained"
+            className="button c"
+            onClick={() => getCountries(filter.search, 'language')}
+          >
+            Agrupar por lenguaje
           </Button>
         </div>
       </form>
       <div className="country-result">
-        <CountryResults countryResult={data}/>
+        <CountryResults countryResult={countries} groupBy={groupBy}/>
       </div>
     </div>
   );
 }
 
 export default CountryForm;
-
-// onClick={() => fetchData(datos.search)}

@@ -23,11 +23,3 @@ function App() {
 }
 
 export default App;
-
-// query {
-//   countries(filter: { code: {  } , currency: {  }, continent: {} }) {
-//     code,
-//     capital,
-//     code
-//   }
-// }
