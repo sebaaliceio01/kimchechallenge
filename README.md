@@ -1,8 +1,7 @@
 # Desafío para Software Engineers
 
 Nombre postulante: [Sebastian Aliceio]
-Link a la app en producción: [LINK DEL DEPLOY]
-
+Link a la app en producción: https://kimchechallenge-8b7db.web.app/
 ## Instrucciones
 
 Debes crear un buscador de países consultando el [siguiente grafo](https://countries.trevorblades.com/). Este código contiene una base para seguir con la aplicación en React y ApolloClient. Queda a disposición tuya cualquier cambio, ya sea de estructura, estilo, etc.
